@@ -19,7 +19,7 @@ This repository contains the complete codebase for both the frontend and backend
   - 🛠️ Developer tools & utilities  
 
 ---
-
+```bash
 # 📁 Project Structure
 
 HELLFIRE/
@@ -61,7 +61,7 @@ server/
 ├── .env
 ├── package.json
 └── tsconfig.json
-
+```
 ---
 
 # 🛠️ Installation & Setup
