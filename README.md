@@ -1,4 +1,4 @@
-# 🔥 Hellfire
+# 🔥 Hellfire_CLI
 
 Hellfire is a **CLI-based full-stack application** consisting of a **Next.js client** and an **Express server**.  
 The project is currently in its initial development phase, and new features—such as **AI agentic tools**, **built-in code compiler**, and more—will be added soon.
