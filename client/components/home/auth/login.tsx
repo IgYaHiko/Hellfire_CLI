@@ -4,13 +4,22 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { icons } from '@/public/assets/icons/icons'
-
+import {authClient} from "@/lib/auth-client"
 import Image from 'next/image'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
+import { useState } from 'react'
 
 
 export default function LoginPage() {
- 
+   const router = useRouter()
+   const [isLoading, setIsLoading] = useState();
+   const handleGithubProvider = () => {
+     authClient.signIn.social({
+         provider: "github",
+         callbackURL: "http://localhost:3002"
+     })
+   }
     return (
          <form
              
@@ -37,9 +46,10 @@ export default function LoginPage() {
                     <hr className=" mt-4 mb-4 border-dashed" />
                   <div className='max-w-xs flex flex-col items-center space-y-5'>
   <Button
+    onClick={handleGithubProvider}
     type="button"
     variant="outline"
-    className="w-full flex items-center gap-2 justify-center py-6"
+    className="w-full flex items-center gap-2 justify-center py-6 cursor-pointer"
   >
     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-github" viewBox="0 0 16 16">
       <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 
