@@ -10,6 +10,8 @@ import { Button } from '@/components/ui/button';
 import { useRouter } from 'next/navigation'
 import { icons } from '@/public/assets/icons/icons';
 import Link from 'next/link';
+import { authClient } from '@/lib/auth-client';
+import { se } from 'date-fns/locale';
 
 // Adjust your color system if needed
 /* const colors = {
@@ -28,6 +30,7 @@ const Navbar: React.FC<NavbarProps> = () => {
   const [isOpen, setIsOpen] = useState(false);
    const router = useRouter(); 
   const menuRef = useRef<HTMLDivElement>(null);
+ const { data: session } = authClient.useSession();
 
 
   return (
@@ -66,8 +69,17 @@ const Navbar: React.FC<NavbarProps> = () => {
             </div> 
 
             {/* Desktop Auth Buttons */}
-              
-              <div className='space-x-5 flex items-center justify-center'>
+              {
+                session?.user ? (
+                      <Button
+                      className='rounded-none font-mono font-semibold'
+                       onClick={() => authClient.signOut()}
+                      >
+                        Logout
+                      </Button>
+          
+                ) : (
+                       <div className='space-x-5 flex items-center justify-center'>
                 
            <Link
             href={"/auth/sign-in"}
@@ -88,6 +100,9 @@ const Navbar: React.FC<NavbarProps> = () => {
             </Link>
           </div>
           
+                )
+              }
+    
           </div>
         </div>
 

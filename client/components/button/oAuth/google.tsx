@@ -1,15 +1,21 @@
 "use client"
 import React from 'react'
 import { Button } from '../../ui/button'
+import { authClient } from '@/lib/auth-client'
 
 const GoogleProvider = () => {
-    
+  const handleGoogleProvider = () => {
+      authClient.signIn.social({
+         provider: "google",
+         callbackURL: "http://localhost:3002"
+      })
+  }
   return (
       <Button
-       className='w-full py-6'
+       className='w-full py-6 cursor-pointer'
                            type="button"
                             variant="outline"
-                           
+                           onClick={handleGoogleProvider}
                             >
                             
                             <svg

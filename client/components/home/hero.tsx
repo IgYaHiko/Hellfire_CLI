@@ -7,6 +7,7 @@ import { Copy } from 'lucide-react'
 import Image from 'next/image'
 import { ASSETS } from '@/public/assets/images/img'
 import Stats from './stats'
+import { authClient } from '@/lib/auth-client'
 
 const Hero = () => {
   const copyToClipboard = () => {
@@ -77,7 +78,7 @@ const Hero = () => {
                 >
                <Button className='font-mono font-semibold rounded-full py-6 px-10'>Get Started for free</Button>
                </Link>
-
+            
                <Stats/>
             </div>
 
