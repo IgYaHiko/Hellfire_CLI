@@ -1,5 +1,20 @@
 # 🔥 Hellfire_CLI
 
+## 🖼️ UI Preview
+
+### 🏠 Home Screen  
+A clean and modern landing interface for the Hellfire client.  
+![Home UI](./client/public/1st_home.png)
+
+### 🔐 Device Authentication  
+The screen used for Better Auth’s device-based login flow.  
+![Device Auth UI](./client/public/2nd_device.png)
+
+### 💻 CLI Interface  
+Hellfire’s command-line workflow for developers.  
+![CLI UI](./client/public/3rd_cli.png)
+
+---
 
 
 Hellfire is a **CLI-based full-stack application** consisting of a **Next.js client** and an **Express server**.  
