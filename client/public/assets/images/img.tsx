@@ -7,6 +7,10 @@ import Sohrab from '@/public/assets/images/soh.jpeg'
 import Bristi from "@/public/assets/images/bristi.png"
 import Tiyshi from '@/public/assets/images/tiyashi.png'
 import Subhro from '@/public/assets/images/me.png'
+
+
+import DEVILONE from '@/public/assets/images/devilone.png'
+import DEVILTWO from '@/public/assets/images/deviltwo.png'
 export const ASSETS = {
      SWORD,
      CHAIN
@@ -18,4 +22,9 @@ export const Developers = {
      Bristi,
      Tiyshi,
      Subhro
+}
+
+export const DEVILS = { 
+     DEVILONE,
+     DEVILTWO
 }

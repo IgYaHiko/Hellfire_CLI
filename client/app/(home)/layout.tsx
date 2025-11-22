@@ -6,7 +6,7 @@ interface Props {
 }
 const Layout = ({ children }: Props) => {
   return (
-     <main className="flex  flex-col min-h-screen  max-h-screen relative ">
+     <main className="flex  flex-col min-h-screen  max-h-screen relative">
   {/* Full-page dotted background */}
   <div className="fixed inset-0 -z-10 w-full h-full
     bg-[radial-gradient(circle,rgba(0,0,0,0.05)_1px,transparent_1px)]

@@ -1,5 +1,9 @@
 import { CONFIG_DIR, TOKEN_FILE } from "../cli/commands/auth/login.js";
-
+import fs from 'fs/promises'
+import open from "open";
+import os from "os";
+import path from "path";
+import chalk from "chalk";
 export async function getStoredToken() {
   try {
     const data = await fs.readFile(TOKEN_FILE, "utf-8");

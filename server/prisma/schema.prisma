@@ -76,17 +76,21 @@ model Verification {
 
 model DeviceCode {
   id              String   @id @default(cuid())
-  userId          String? 
+  userId          String?  
   clientId        String
-  deviceCode      String   @unique
-  userCode        String   @unique
+  deviceCode      String
+  userCode        String
   expiresAt       DateTime
-  status          String   // e.g., "pending", "authorized", "expired"
-  pollingInterval Int
-  scope           String
-  createdAt       DateTime @default(now())
-  updatedAt       DateTime @default(now()) @updatedAt
+  status          String    @default("PENDING")
+  pollingInterval Int       @default(5)
+  scope           String?
+  lastPolledAt    DateTime? @default(now())
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
 
   @@map("device_code")
 }
+
+
+
 
