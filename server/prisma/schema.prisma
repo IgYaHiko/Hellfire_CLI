@@ -72,3 +72,21 @@ model Verification {
 
   @@map("verification")
 }
+
+
+model DeviceCode {
+  id              String   @id @default(cuid())
+  userId          String? 
+  clientId        String
+  deviceCode      String   @unique
+  userCode        String   @unique
+  expiresAt       DateTime
+  status          String   // e.g., "pending", "authorized", "expired"
+  pollingInterval Int
+  scope           String
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @default(now()) @updatedAt
+
+  @@map("device_code")
+}
+
