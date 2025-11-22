@@ -4,15 +4,15 @@
 
 ### 🏠 Home Screen  
 A clean and modern landing interface for the Hellfire client.  
-![Home UI](./client/public/1st_home.png)
+![Home UI](./client/public/home.png)
 
 ### 🔐 Device Authentication  
-The screen used for Better Auth’s device-based login flow.  
-![Device Auth UI](./client/public/2nd_device.png)
+The screen used for Better Auth's device-based login flow.  
+![Device Auth UI](./client/public/device.png)
 
 ### 💻 CLI Interface  
-Hellfire’s command-line workflow for developers.  
-![CLI UI](./client/public/3rd_cli.png)
+Hellfire's command-line workflow for developers.  
+![CLI UI](./client/public/cli.png)
 
 ---
 
