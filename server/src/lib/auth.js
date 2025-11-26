@@ -1,21 +1,23 @@
 import { betterAuth } from "better-auth";
 import { prismaAdapter } from "better-auth/adapters/prisma";
-import prisma from './db.js'
-import { deviceAuthorization } from "better-auth/plugins"; 
+import prisma from "./db.js";
+import { deviceAuthorization } from "better-auth/plugins";
 
 const isProd = process.env.NODE_ENV === "production";
 
 export const auth = betterAuth({
   database: prismaAdapter(prisma, {
-    provider: 'postgresql',
+    provider: "postgresql",
   }),
-  
+
   basePath: "/api/auth",
 
-  // ✅ Correct trusted origins
   trustedOrigins: isProd
-    ? ["https://hellfire-cli.vercel.app"]   // NO trailing slash
-    : ["http://localhost:3002"],
+    ? [
+        "https://hellfire-cli.vercel.app",
+        "https://hellfire-cli.onrender.com" // backend must be allowed
+      ]
+    : ["http://localhost:3002", "http://localhost:3005"],
 
   cors: {
     origin: isProd
@@ -25,7 +27,7 @@ export const auth = betterAuth({
   },
 
   cookies: {
-    secure: isProd,  // secure cookies in production
+    secure: isProd,
     sameSite: "none",
   },
 
