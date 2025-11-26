@@ -4,11 +4,11 @@ import { fromNodeHeaders, toNodeHandler } from "better-auth/node";
 import cors from "cors";
 
 const app = express();
-const port = 3005;
+const port = "https://hellfire-cli.onrender.com/"
 
 app.use(
   cors({
-    origin: "http://localhost:3002", 
+    origin: "https://hellfire-cli.vercel.app/", 
     methods: ["GET", "POST", "PUT", "DELETE"], 
     credentials: true, 
   })
@@ -61,9 +61,9 @@ app.get("/api/me/:access_token", async (req, res) => {
 
 app.get("/device", async (req, res) => {
   const { user_code } = req.query; // Fixed: should be req.query, not req.params
-  res.redirect(`http://localhost:3002/device?user_code=${user_code}`);
+  res.redirect(`https://hellfire-cli.vercel.app/device?user_code=${user_code}`);
 });
 
 app.listen(port, () => {
-  console.log(`😈2[HELLFIRE]: Backend server is running on http://localhost:${port}`);
+  console.log(`😈2[HELLFIRE]: Backend server is running on ${port}`);
 });
