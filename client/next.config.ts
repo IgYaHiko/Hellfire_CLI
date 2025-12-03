@@ -1,20 +1,38 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  images: {
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "avatars.githubusercontent.com",
-      },
-      {
-        protocol: "https",
-        hostname: "lh3.googleusercontent.com", // Google OAuth profile pics
-      },
-    ],
-  },
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
-};
+import { createMDX } from 'fumadocs-mdx/next'
+import { NextConfig } from 'next'
 
-export default nextConfig;
+const withMDX = createMDX({
+  // If your source.config.ts is in root
+  configPath: "source.config.ts",
+})
+
+/** @type {import('next').NextConfig} */
+const nextConfig:NextConfig = {
+
+  reactStrictMode: true,
+  pageExtensions: ["ts","tsx","js","jsx","md","mdx"],
+ 
+  async headers() {
+     return [
+         {
+           source: "/r/:path*",
+           headers: [
+             {
+               key: "Cache-Control",
+               value: "public, max-age-31536000, immutable"
+             }
+           ]
+         }
+     ]
+  },
+  images: {
+      remotePatterns: [
+        {
+           hostname: "*"
+        }
+      ]
+  },
+  
+}
+
+export default withMDX(nextConfig)
